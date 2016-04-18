@@ -24,14 +24,18 @@ angular.module('starter', ['ionic'])
 })
         .controller('phoneBook',function($scope, $cordovaContacts, $ionicPlatform){
             $scope.user='按钮';
-             $scope.addContact = function() {
-                 $scope.user='已经按了';
-    $cordovaContacts.save($scope.contactForm).then(function(result) {
+    $scope.addContact = function(){
+    $ioncPlatform.ready({
+        $cordovaContacts.save($scope.contactForm).then(function(result) {
       // Contact saved
     }, function(err) {
       // Contact error
     });
-  };
+    })
+}
+     
+
+
 })
 
   
