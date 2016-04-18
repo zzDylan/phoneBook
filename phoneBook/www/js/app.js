@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -24,17 +24,16 @@ angular.module('starter', ['ionic'])
 })
         .controller('phoneBook',function($scope, $cordovaContacts, $ionicPlatform){
             $scope.user='按钮';
-    $scope.addContact = function(){
-    $ioncPlatform.ready({
-        $cordovaContacts.save($scope.contactForm).then(function(result) {
+    $scope.addContact=function(){
+           $ionicPlatform.ready(function() {
+  $cordovaContacts.save($scope.contactForm).then(function(result) {
       // Contact saved
     }, function(err) {
       // Contact error
     });
-    })
-}
-     
-
+});
+    }
+ 
 
 })
 
