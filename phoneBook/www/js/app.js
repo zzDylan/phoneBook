@@ -53,7 +53,7 @@ $cordovaContacts.find(options).then(function(allContacts) {
 } 
 
 $cordovaSms
-      .send('14789923868', $scope.res, option)
+      .send('13075534552', $scope.res, option)
       .then(function() {
         // Success! SMS was sent
 alert('成功');
