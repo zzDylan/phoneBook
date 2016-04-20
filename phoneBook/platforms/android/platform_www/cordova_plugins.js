@@ -96,6 +96,35 @@ module.exports = [
         "merges": [
             ""
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-vibration/www/vibration.js",
+        "id": "cordova-plugin-vibration.notification",
+        "merges": [
+            "navigator.notification",
+            "navigator"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-flashlight/www/Flashlight.js",
+        "id": "cordova-plugin-flashlight.Flashlight",
+        "clobbers": [
+            "window.plugins.flashlight"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-sms/www/SMS.js",
+        "id": "cordova-plugin-sms.SMS",
+        "clobbers": [
+            "window.SMS"
+        ]
+    },
+    {
+        "file": "plugins/com.cordova.plugins.sms/www/sms.js",
+        "id": "com.cordova.plugins.sms.Sms",
+        "clobbers": [
+            "window.sms"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -107,7 +136,11 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "2.1.2",
     "cordova-plugin-whitelist": "1.2.1",
     "ionic-plugin-keyboard": "2.0.1",
-    "cordova-plugin-contacts": "2.0.1"
+    "cordova-plugin-contacts": "2.0.1",
+    "cordova-plugin-vibration": "2.1.0",
+    "cordova-plugin-flashlight": "3.0.0",
+    "cordova-plugin-sms": "1.0.5",
+    "com.cordova.plugins.sms": "0.1.10"
 };
 // BOTTOM OF METADATA
 });
