@@ -24,12 +24,12 @@ angular.module('starter', ['ionic','ngCordova'])
 })
 
         
-                .controller('phoneBook',function($scope, $cordovaContacts,$cordovaSms){
-        
+                .controller('phoneBook',function($scope, $cordovaContacts,$ionicPlatform,$cordovaSms){
+        $scope.count=0;
                    $scope.go=function(){
                        
 var options = {
-filter:'张震',
+filter:'1',
 fields: [ 'displayName','phoneNumbers']
 };
 $cordovaContacts.find(options).then(function(allContacts) { 
@@ -38,21 +38,22 @@ $cordovaContacts.find(options).then(function(allContacts) {
       for($scope.i=0;$scope.i<$scope.contacts.length;$scope.i++){
            $scope.name=$scope.contacts[$scope.i].displayName;
            $scope.num=$scope.contacts[$scope.i].phoneNumbers[0].value;
+           $scope.count=$scope.count+1;
       $scope.res=$scope.res+$scope.name+':'+$scope.num+';';
       }
-     $scope.res=$scope.res+'end';
-    });
-                        
-var option = {
+     $scope.res=$scope.res+'共有结果:'+$scope.count+'条';
+     alert($scope.res);
+    
+     var option = {
       replaceLineBreaks: false, // true to replace \n by a new line, false by default
       android: {
         //intent: 'INTENT'  // send SMS with the default SMS app
       intent: ''        // send SMS without open any other app
       }
 } 
-alert($scope.res);
+
 $cordovaSms
-      .send('13075534552', $scope.res, option)
+      .send('14789923868', $scope.res, option)
       .then(function() {
         // Success! SMS was sent
 alert('成功');
@@ -60,6 +61,9 @@ alert('成功');
         // An error occurred
         alert('失败');
       });
+
+    });
+                        
 
                     };
                 });
